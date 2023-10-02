@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewData["Title"] = "BuscarSalonero";
+}
+
+<h1>Buscar Salonero</h1>
+<form class="form-inline">
+    <input class="form-control" type="search" placeholder="Nombre del salonero" aria-label="Search" />
+    <button class="btn btn-dark my-2 my-sm-0" type="submit">Buscar</button>
+</form>
+<table class="table table-light">
+    <thead>
+        <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">Kevin Jiménez Granados</th>
+            <td><button type="button" class="btn btn-dark"><a asp-area="" asp-controller="Salonero" asp-action="" style="text-decoration: none; color:white">Modificar</a></button></td>
+            <td>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">
+                        Habilitado
+                    </label>
+                </div>
+            </td>
+
+        </tr>
+        <tr>
+            <th scope="row">Andrei Martinez Delgado</th>
+            <td><button type="button" class="btn btn-dark"><a asp-area="" asp-controller="Salonero" asp-action="" style="text-decoration: none; color:white">Modificar</a></button></td>
+            <td>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">
+                        Habilitado
+                    </label>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">Grace Rojas Arce</th>
+            <td><button type="button" class="btn btn-dark"><a asp-area="" asp-controller="Salonero" asp-action="" style="text-decoration: none; color:white">Modificar</a></button></td>
+            <td>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">
+                        Habilitado
+                    </label>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
