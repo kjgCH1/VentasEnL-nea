@@ -5,7 +5,7 @@ namespace VentasEnLíneaVista.Controllers
     public class ProductoController : Controller
     {
         public IActionResult CrearProducto()
-        {
+        {   
             return View();
         }
 
