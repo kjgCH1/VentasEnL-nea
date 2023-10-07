@@ -8,4 +8,10 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="Entidades">
+      <HintPath>..\..\VentasEnLíneaAPI\Entidades\bin\Debug\netcoreapp3.1\Entidades.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

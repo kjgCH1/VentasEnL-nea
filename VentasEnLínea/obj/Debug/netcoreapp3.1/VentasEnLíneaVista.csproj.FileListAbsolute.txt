@@ -132,3 +132,5 @@ C:\Users\gmg55\source\repos\VentasEnLínea\VentasEnLínea\obj\Debug\netcoreapp3.
 C:\Users\gmg55\source\repos\VentasEnLínea\VentasEnLínea\obj\Debug\netcoreapp3.1\Razor\Views\Direccion\CrearDireccion.cshtml.g.cs
 C:\Users\gmg55\source\repos\VentasEnLínea\VentasEnLínea\obj\Debug\netcoreapp3.1\Razor\Views\Direccion\BuscarDireccion.cshtml.g.cs
 C:\Users\gmg55\source\repos\VentasEnLínea\VentasEnLínea\obj\Debug\netcoreapp3.1\Razor\Views\Producto\menu.cshtml.g.cs
+C:\Users\gmg55\source\repos\VentasEnLínea\VentasEnLínea\bin\Debug\netcoreapp3.1\Entidades.dll
+C:\Users\gmg55\source\repos\VentasEnLínea\VentasEnLínea\bin\Debug\netcoreapp3.1\Entidades.pdb

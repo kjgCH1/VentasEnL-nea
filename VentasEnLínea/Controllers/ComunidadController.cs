@@ -1,4 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using VentasEnLíneaVista.Models;
+using Entidades;
 
 namespace VentasEnLíneaVista.Controllers
 {
@@ -10,13 +13,24 @@ namespace VentasEnLíneaVista.Controllers
         }
 
         public IActionResult BuscarComunidad() 
-        { 
-            return View(); 
+        {
+            ComunidadModel model = new ComunidadModel();
+            List<Comunidad> comunidades = model.listar();
+            return View(comunidades); 
         }
 
-        public IActionResult ModificarComunidad() 
+        [HttpPost]
+        public IActionResult BuscarComunidad(string parametroBusqueda)
         {
-            return View();
+            ComunidadModel model = new ComunidadModel();
+            List<Comunidad> comunidades = model.buscarComunidad(parametroBusqueda);
+            return View(comunidades);
+        }
+
+        [HttpPost]
+        public IActionResult ModificarComunidad(int id) 
+        {   
+            return View(id);
         }
     }
 
