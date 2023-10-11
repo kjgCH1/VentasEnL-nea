@@ -165,7 +165,7 @@ namespace VentasEnLíneaVista.Models
                 var content = new StringContent(JsonConvert.SerializeObject(comunidad), Encoding.UTF8, "application/json");
 
                 // Realizar una solicitud PUT a la API que recibe la solicitud
-                HttpResponseMessage response = client.PutAsync("comunidad/modificarComunidad/47", content).Result;
+                HttpResponseMessage response = client.PutAsync("comunidad/modificarComunidad", content).Result;
 
                 // Verificar si la solicitud fue exitosa
                 if (response.IsSuccessStatusCode)

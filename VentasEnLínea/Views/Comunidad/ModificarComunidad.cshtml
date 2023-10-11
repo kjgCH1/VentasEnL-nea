@@ -15,8 +15,9 @@
     </div>
     <div class="mb-3">
         <label asp-for="Precio">Precio de entrega</label>
-        <input asp-for="Precio" class="form-control" name="Precio" />
+        <input asp-for="Precio" class="form-control" name="Precio" required/>
         <div id="errorPrecio" class="error-message"></div>
+        <input asp-for="Id" type="hidden" class="form-control" name="Id" required />
     </div>
     <button type="submit" class="btn btn-dark">Modificar</button>
 </form>
@@ -57,7 +58,7 @@
             document.getElementById("Precio").classList.add("error-border");
 
             // Mostrar el mensaje de error debajo del campo Precio
-            errorPrecio.innerHTML = "El campo Precio debe tener el formato #####,#";
+            errorPrecio.innerHTML = "El campo Precio debe tener el formato #####,##";
             return false; // Evita que se envíe el formulario
         }
 

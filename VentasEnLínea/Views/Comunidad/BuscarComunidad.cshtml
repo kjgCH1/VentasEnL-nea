@@ -4,10 +4,15 @@
 }
 
 <h1>Buscar Comunidad</h1>
+
 <form class="form-inline" method="post" action="/Comunidad/BuscarComunidad">
-    <input class="form-control" type="text" id="parametroBusqueda" name="parametroBusqueda" placeholder="Nombre de la comunidad" aria-label="Search" />
+    <input class="form-control" type="text" id="parametroBusqueda" name="parametroBusqueda" placeholder="Nombre de la comunidad" aria-label="Search" required/>
     <input class="btn btn-dark my-2 my-sm-0" type="submit" value="Buscar"/>
 </form>
+@if (!string.IsNullOrEmpty(ViewBag.Mensaje))
+{
+    <div class="alert alert-warning" role="alert">@ViewBag.Mensaje</div>
+}
 <table class="table table-light">
     <thead>
         <tr>

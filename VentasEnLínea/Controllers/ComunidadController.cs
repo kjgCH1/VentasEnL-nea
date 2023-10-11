@@ -27,6 +27,9 @@ namespace VentasEnLíneaVista.Controllers
         {
             ComunidadModel model = new ComunidadModel();
             List<Comunidad> comunidades = model.buscarComunidad(parametroBusqueda);
+            if (comunidades.Count==0) {
+                ViewBag.Mensaje = "No se encontraron resultados para '"+parametroBusqueda+"'";
+            }
             return View(comunidades);
         }
 
@@ -56,7 +59,8 @@ namespace VentasEnLíneaVista.Controllers
                 }
                 
             }
-           
+
+            comunidad = new Comunidad();
             return View(comunidad);
         }
 
@@ -80,7 +84,7 @@ namespace VentasEnLíneaVista.Controllers
                 }
 
             }
-
+            
             return View(comunidad);
         }
 
