@@ -124,9 +124,34 @@ namespace VentasEnLíneaVista.Models
             return comunidad;
         }
 
-        public bool crearComunidad(Comunidad comunidad) {
+        public bool crearComunidad(Comunidad comunidad)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(baseUrl);
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-            return true;
-        }
+                // Convertir el objeto Comunidad a JSON
+                var content = new StringContent(JsonConvert.SerializeObject(comunidad), Encoding.UTF8, "application/json");
+
+                // Realizar una solicitud POST a la API que recibe la solicitud
+                HttpResponseMessage response = client.PostAsync("comunidad/crearComunidad", content).Result;
+
+                // Verificar si la solicitud fue exitosa
+                if (response.IsSuccessStatusCode)
+                {
+                    // La solicitud fue exitosa, puedes realizar acciones adicionales aquí
+                    Console.WriteLine($"Error en la solicitud HTTP: {response.StatusCode}");
+                    string jsonResponse = response.Content.ReadAsStringAsync().Result;
+                    return JsonConvert.DeserializeObject<bool>(jsonResponse);
+                }
+                else
+                {
+                    // Manejar el caso en el que la solicitud no fue exitosa
+                    Console.WriteLine($"Error en la solicitud HTTP: {response.StatusCode}");
+                    return false;
+                }
+            }
+        } 
     }
 }

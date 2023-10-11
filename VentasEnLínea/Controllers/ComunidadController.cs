@@ -11,7 +11,8 @@ namespace VentasEnLíneaVista.Controllers
     {
         public IActionResult CrearComunidad()
         {
-            return View();
+            Comunidad comunidad = new Comunidad();
+            return View(comunidad);
         }
 
         public IActionResult BuscarComunidad() 
@@ -39,9 +40,24 @@ namespace VentasEnLíneaVista.Controllers
 
         [HttpPost]
         public IActionResult crearComunidad(Comunidad comunidad) {
-            ComunidadModel model = new ComunidadModel();
-            model.crearComunidad(comunidad);
-            return View();
+            if (ModelState.IsValid) {
+                ComunidadModel model = new ComunidadModel();
+              
+                if (model.crearComunidad(comunidad))
+                {
+                    ViewBag.Mensaje = "La Comunidad " + comunidad.Nombre +
+                    " ha sido agregada con el Precio ₡" + comunidad.Precio;
+                    ModelState.Clear();
+                    ViewBag.etiqueta = "alert alert-success"; 
+                }
+                else {
+                    ViewBag.Mensaje = "Algo salio mal";
+                    ViewBag.etiqueta = "alert alert-danger";
+                }
+                
+            }
+           
+            return View(comunidad);
         }
 
     }

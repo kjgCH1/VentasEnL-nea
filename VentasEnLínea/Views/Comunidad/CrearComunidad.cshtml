@@ -3,17 +3,72 @@
     ViewData["Title"] = "CrearComunidad";
 }
 @model Entidades.Comunidad
-<h1>Crear Comunidad</h1>
-<form method="post" action="/Comunidad/crearComunidad">
-    <div class="form-row">
-        <label for="inputState">Nombre</label>
 
-        <input type="text" class="form-control" />
+<h1>Crear Comunidad</h1>
+@if (!string.IsNullOrEmpty(ViewBag.Mensaje))
+{
+    <div class="@ViewBag.etiqueta" role="alert">@ViewBag.Mensaje</div>
+}
+<form method="post" asp-action="crearComunidad" onsubmit="return mostrarConfirmacion()">
+    <div class="form-row">
+        <label asp-for="Nombre"></label>
+        <input asp-for="Nombre" class="form-control" name="Nombre" required/>
     </div>
     <div class="mb-3">
-        <label for="inputState">Precio de entrega</label>
-
-        <input type="number" class="form-control" />
+        <label asp-for="Precio">Precio de entrega</label>
+        <input asp-for="Precio" class="form-control" name="Precio" />
+        <div id="errorPrecio" class="error-message"></div>
     </div>
     <button type="submit" class="btn btn-dark">Crear</button>
 </form>
+
+
+
+<style>
+    .error-message {
+        color: red;
+        font-size: 14px;
+    }
+
+    .error-border {
+        border: 1px solid red;
+    }
+</style>
+
+<script>
+    function mostrarConfirmacion() {
+        var nombreComunidad = document.getElementById("Nombre").value;
+        var precioComunidad = document.getElementById("Precio").value;
+        var errorPrecio = document.getElementById("errorPrecio");
+
+        // Reiniciar el estilo y mensaje de error
+        document.getElementById("Precio").classList.remove("error-border");
+        errorPrecio.innerHTML = "";
+
+        // Validar que el nombre no esté vacío
+        if (nombreComunidad.trim() === "") {
+            alert("El campo Nombre es requerido.");
+            return false; // Evita que se envíe el formulario
+        }
+
+        // Validar el formato del campo Precio
+        var precioPattern = /^\d{1,5},\d{1}$/; // #####,#
+        if (!precioPattern.test(precioComunidad)) {
+            // Aplicar el estilo de error al campo Precio
+            document.getElementById("Precio").classList.add("error-border");
+
+            // Mostrar el mensaje de error debajo del campo Precio
+            errorPrecio.innerHTML = "El campo Precio debe tener el formato #####,#";
+            return false; // Evita que se envíe el formulario
+        }
+
+        var mensaje = "¿Está seguro de continuar con la creación de la comunidad " + nombreComunidad + " con un precio de " + precioComunidad + "?";
+        if (confirm(mensaje)) {
+            // Si el usuario hace clic en "Aceptar", el formulario se enviará.
+            return true;
+        }
+
+        // Si el usuario hace clic en "Cancelar", el formulario no se enviará.
+        return false;
+    }
+</script>
