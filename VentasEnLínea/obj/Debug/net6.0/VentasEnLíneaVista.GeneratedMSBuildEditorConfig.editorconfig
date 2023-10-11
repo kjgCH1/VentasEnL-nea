@@ -1,0 +1,125 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = VentasEnLíneaVista
+build_property.RootNamespace = VentasEnLíneaVista
+build_property.ProjectDir = C:\Users\gmg55\source\repos\VentasEnLínea\VentasEnLínea\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\gmg55\source\repos\VentasEnLínea\VentasEnLínea
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/gmg55/source/repos/VentasEnLínea/VentasEnLínea/Views/Categoria/BuscarCategoria.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhXEJ1c2NhckNhdGVnb3JpYS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gmg55/source/repos/VentasEnLínea/VentasEnLínea/Views/Categoria/CrearCategoria.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhXENyZWFyQ2F0ZWdvcmlhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gmg55/source/repos/VentasEnLínea/VentasEnLínea/Views/Categoria/ModificarCategoria.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhXE1vZGlmaWNhckNhdGVnb3JpYS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gmg55/source/repos/VentasEnLínea/VentasEnLínea/Views/Comunidad/BuscarComunidad.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tdW5pZGFkXEJ1c2NhckNvbXVuaWRhZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gmg55/source/repos/VentasEnLínea/VentasEnLínea/Views/Comunidad/CrearComunidad.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tdW5pZGFkXENyZWFyQ29tdW5pZGFkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gmg55/source/repos/VentasEnLínea/VentasEnLínea/Views/Comunidad/ModificarComunidad.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tdW5pZGFkXE1vZGlmaWNhckNvbXVuaWRhZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gmg55/source/repos/VentasEnLínea/VentasEnLínea/Views/Direccion/BuscarDireccion.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlyZWNjaW9uXEJ1c2NhckRpcmVjY2lvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gmg55/source/repos/VentasEnLínea/VentasEnLínea/Views/Direccion/CrearDireccion.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlyZWNjaW9uXENyZWFyRGlyZWNjaW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gmg55/source/repos/VentasEnLínea/VentasEnLínea/Views/Historial/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGlzdG9yaWFsXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gmg55/source/repos/VentasEnLínea/VentasEnLínea/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gmg55/source/repos/VentasEnLínea/VentasEnLínea/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gmg55/source/repos/VentasEnLínea/VentasEnLínea/Views/Oferta/BuscarOferta.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2ZlcnRhXEJ1c2Nhck9mZXJ0YS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gmg55/source/repos/VentasEnLínea/VentasEnLínea/Views/Oferta/CrearOferta.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2ZlcnRhXENyZWFyT2ZlcnRhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gmg55/source/repos/VentasEnLínea/VentasEnLínea/Views/Oferta/ModificarOferta.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2ZlcnRhXE1vZGlmaWNhck9mZXJ0YS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gmg55/source/repos/VentasEnLínea/VentasEnLínea/Views/Pendiente/Notificacion.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVuZGllbnRlXE5vdGlmaWNhY2lvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gmg55/source/repos/VentasEnLínea/VentasEnLínea/Views/Producto/BuscarProducto.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cQnVzY2FyUHJvZHVjdG8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gmg55/source/repos/VentasEnLínea/VentasEnLínea/Views/Producto/CrearProducto.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cQ3JlYXJQcm9kdWN0by5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gmg55/source/repos/VentasEnLínea/VentasEnLínea/Views/Producto/menu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cbWVudS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gmg55/source/repos/VentasEnLínea/VentasEnLínea/Views/Producto/ModificarProducto.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cTW9kaWZpY2FyUHJvZHVjdG8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gmg55/source/repos/VentasEnLínea/VentasEnLínea/Views/Reporte/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gmg55/source/repos/VentasEnLínea/VentasEnLínea/Views/Salonero/BuscarSalonero.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Fsb25lcm9cQnVzY2FyU2Fsb25lcm8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gmg55/source/repos/VentasEnLínea/VentasEnLínea/Views/Salonero/CrearSalonero.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Fsb25lcm9cQ3JlYXJTYWxvbmVyby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gmg55/source/repos/VentasEnLínea/VentasEnLínea/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gmg55/source/repos/VentasEnLínea/VentasEnLínea/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gmg55/source/repos/VentasEnLínea/VentasEnLínea/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gmg55/source/repos/VentasEnLínea/VentasEnLínea/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gmg55/source/repos/VentasEnLínea/VentasEnLínea/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 

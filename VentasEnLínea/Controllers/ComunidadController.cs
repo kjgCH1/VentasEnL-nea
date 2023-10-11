@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using VentasEnLíneaVista.Models;
 using Entidades;
+using System.Runtime.InteropServices;
+using System.Globalization;
 
 namespace VentasEnLíneaVista.Controllers
 {
@@ -27,11 +29,21 @@ namespace VentasEnLíneaVista.Controllers
             return View(comunidades);
         }
 
-        [HttpPost]
+        [HttpGet]
         public IActionResult ModificarComunidad(int id) 
         {   
-            return View(id);
+            ComunidadModel model = new ComunidadModel();
+            Comunidad comunidad = model.buscarComunidadId(id);
+            return View(comunidad);
         }
+
+        [HttpPost]
+        public IActionResult crearComunidad(Comunidad comunidad) {
+            ComunidadModel model = new ComunidadModel();
+            model.crearComunidad(comunidad);
+            return View();
+        }
+
     }
 
 }

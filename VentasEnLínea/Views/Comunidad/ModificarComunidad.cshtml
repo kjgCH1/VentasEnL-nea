@@ -1,20 +1,22 @@
-﻿
+﻿@model Entidades.Comunidad
 @{
     ViewData["Title"] = "ModificarComunidad";
+
 }
 
-<h1>Modificar Comunidad @Model</h1>
-<form>
-    <div class="form-row">
-        <label for="inputState">Nombre</label>
 
-        <input type="text" class="form-control" />
+<h1>Modificar Comunidad</h1>
+<form>
+     <div class="form-row">
+        <label for="inputState">Nombre</label>
+        <input type="text" class="form-control" name="nombre" value="@Model.Nombre" />
     </div>
     <div class="form-row">
         <label for="inputState">Precio de entrega</label>
-
-        <input type="number" class="form-control mb-3" />
+        <input type="text" class="form-control mb-3" name="precio" value="@Model.Precio"/>
+        <input type="hidden" name="id" value="@Model.Id" />
     </div>
     <button type="submit" class="btn btn-dark">Modificar</button>
 </form>
+
 

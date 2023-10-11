@@ -2,9 +2,9 @@
 @{
     ViewData["Title"] = "CrearComunidad";
 }
-
+@model Entidades.Comunidad
 <h1>Crear Comunidad</h1>
-<form>
+<form method="post" action="/Comunidad/crearComunidad">
     <div class="form-row">
         <label for="inputState">Nombre</label>
 
