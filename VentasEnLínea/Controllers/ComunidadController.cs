@@ -34,12 +34,12 @@ namespace VentasEnLíneaVista.Controllers
         public IActionResult ModificarComunidad(int id) 
         {   
             ComunidadModel model = new ComunidadModel();
-            Comunidad comunidad = model.buscarComunidadId(id);
-            return View(comunidad);
+           
+            return View(model.buscarComunidadId(id));
         }
 
         [HttpPost]
-        public IActionResult crearComunidad(Comunidad comunidad) {
+        public IActionResult CrearComunidad(Comunidad comunidad) {
             if (ModelState.IsValid) {
                 ComunidadModel model = new ComunidadModel();
               
@@ -57,6 +57,30 @@ namespace VentasEnLíneaVista.Controllers
                 
             }
            
+            return View(comunidad);
+        }
+
+        [HttpPost]
+        public IActionResult ModificarComunidad(Comunidad comunidad) {
+            if (ModelState.IsValid)
+            {
+                ComunidadModel model = new ComunidadModel();
+
+                if (model.modificarComunidad(comunidad))
+                {
+                    ViewBag.Mensaje = "La Comunidad " + comunidad.Nombre +
+                    " ha sido modificada con el Precio ₡" + comunidad.Precio;
+                    ModelState.Clear();
+                    ViewBag.etiqueta = "alert alert-success";
+                }
+                else
+                {
+                    ViewBag.Mensaje = "Algo salio mal";
+                    ViewBag.etiqueta = "alert alert-danger";
+                }
+
+            }
+
             return View(comunidad);
         }
 

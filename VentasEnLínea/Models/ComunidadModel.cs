@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 namespace VentasEnLíneaVista.Models
@@ -152,6 +153,35 @@ namespace VentasEnLíneaVista.Models
                     return false;
                 }
             }
-        } 
+        }
+
+        public bool modificarComunidad(Comunidad comunidad) {
+            using (HttpClient client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(baseUrl);
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                // Convertir el objeto Comunidad a JSON
+                var content = new StringContent(JsonConvert.SerializeObject(comunidad), Encoding.UTF8, "application/json");
+
+                // Realizar una solicitud PUT a la API que recibe la solicitud
+                HttpResponseMessage response = client.PutAsync("comunidad/modificarComunidad/47", content).Result;
+
+                // Verificar si la solicitud fue exitosa
+                if (response.IsSuccessStatusCode)
+                {
+                    // La solicitud fue exitosa, puedes realizar acciones adicionales aquí
+                    Console.WriteLine($"Error en la solicitud HTTP: {response.StatusCode}");
+                    string jsonResponse = response.Content.ReadAsStringAsync().Result;
+                    return JsonConvert.DeserializeObject<bool>(jsonResponse);
+                }
+                else
+                {
+                    // Manejar el caso en el que la solicitud no fue exitosa
+                    Console.WriteLine($"Error en la solicitud HTTP: {response.StatusCode}");
+                    return false;
+                }
+            }
+         }
     }
 }

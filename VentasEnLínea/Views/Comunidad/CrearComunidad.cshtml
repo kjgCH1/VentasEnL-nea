@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewData["Title"] = "CrearComunidad";
+    ViewData["Title"] = "Crear Comunidad";
 }
 @model Entidades.Comunidad
 
@@ -9,7 +9,7 @@
 {
     <div class="@ViewBag.etiqueta" role="alert">@ViewBag.Mensaje</div>
 }
-<form method="post" asp-action="crearComunidad" onsubmit="return mostrarConfirmacion()">
+<form method="post" asp-action="CrearComunidad" onsubmit="return mostrarConfirmacion()">
     <div class="form-row">
         <label asp-for="Nombre"></label>
         <input asp-for="Nombre" class="form-control" name="Nombre" required/>
@@ -52,7 +52,7 @@
         }
 
         // Validar el formato del campo Precio
-        var precioPattern = /^\d{1,5},\d{1}$/; // #####,#
+        var precioPattern = /^\d{1,5},\d{1,2}$/; // #####,##
         if (!precioPattern.test(precioComunidad)) {
             // Aplicar el estilo de error al campo Precio
             document.getElementById("Precio").classList.add("error-border");
