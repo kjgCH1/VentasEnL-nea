@@ -2,14 +2,23 @@
 @{
     ViewData["Title"] = "Crear Categoria";
 }
+@model Entidades.Categoria;
+
 
 <h1>Crear Categoria</h1>
-<form>
+@if (!string.IsNullOrEmpty(ViewBag.Mensaje))
+{
+    <div class="@ViewBag.etiqueta" role="alert">@ViewBag.Mensaje</div>
+}
+<form method="post" asp-action="crearCategoria"
+      onsubmit="return confirm('¿Estás seguro de crear la categoria con el nombre ' + document.getElementById('Nombre').value + '?')">
     <div class="form-row">
-        <label for="inputState">Nombre</label>
-
-        <input type="text" class="form-control" />
+        <label asp-for="Nombre"></label>
+        <input asp-for="Nombre" class="form-control" name="Nombre" required />
     </div>
-    
+    <div class="mb-3">
+        <input asp-for="Id" type="hidden" class="form-control" name="Id" required />
+        <input asp-for="Habilitado" type="hidden" class="form-control" name="Habilitado" required />
+    </div>
     <button type="submit" class="btn btn-dark">Crear</button>
 </form>

@@ -4,56 +4,48 @@
 }
 
 <h1>Buscar Categoria</h1>
-<form class="form-inline">
-    <input class="form-control" type="search" placeholder="Nombre de la categoria" aria-label="Search" />
-    <button class="btn btn-dark my-2 my-sm-0" type="submit">Buscar</button>
+<form class="form-inline" method="post" action="/Categoria/BuscarCategoria">
+    <input class="form-control" type="text" id="parametroBusqueda" name="parametroBusqueda" placeholder="Nombre de la comunidad" aria-label="Search" required />
+    <input class="btn btn-dark my-2 my-sm-0" type="submit" value="Buscar" />
 </form>
+@if (!string.IsNullOrEmpty(ViewBag.Mensaje))
+{
+    <div class="alert alert-warning" role="alert">@ViewBag.Mensaje</div>
+}
 <table class="table table-light">
     <thead>
         <tr>
             <th scope="col">Nombre</th>
-            <th scope="col"></th>
+            <th scope="col">Habilitado</th>
             <th scope="col"></th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <th scope="row">Sushi Roll</th>
-            <td><button type="button" class="btn btn-dark"><a asp-area="" asp-controller="Categoria" asp-action="ModificarCategoria" style="text-decoration: none; color:white">Modificar</a></button></td>
-            <td>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck">
-                    <label class="form-check-label" for="gridCheck">
-                        Habilitado
-                    </label>
-                </div>
-            </td>
+        @foreach (var categoria in Model)
+        {
+            <tr>
+                <th scope="row">@categoria.Nombre</th>
+                
+                <td scope="row">
+                    <div class="form-check form-check-inline">
+                        <form action="/Categoria/ModificarCategoriaPorJson">
+                            <input type="hidden" name="id" id="id" value="@categoria.Id" />
+                            <input type="hidden" name="id" id="id" value="@categoria.Nombre" />
+                            <input type="hidden" name="id" id="id" value="@categoria.Habilitado" />
+                            <input class="form-check-input" style="background-color: black;" type="checkbox" checked="@categoria.Habilitado" id="gridCheck">
+                        </form>
+                     </div>
+                </td>
 
-        </tr>
-        <tr>
-            <th scope="row">Pollo</th>
-            <td><button type="button" class="btn btn-dark"><a asp-area="" asp-controller="Categoria" asp-action="ModificarCategoria" style="text-decoration: none; color:white">Modificar</a></button></td>
-            <td>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck">
-                    <label class="form-check-label" for="gridCheck">
-                        Habilitado
-                    </label>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <th scope="row">Arroces</th>
-            <td><button type="button" class="btn btn-dark"><a asp-area="" asp-controller="Categoria" asp-action="ModificarCategoria" style="text-decoration: none; color:white">Modificar</a></button></td>
-            <td>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck">
-                    <label class="form-check-label" for="gridCheck">
-                        Habilitado
-                    </label>
-                </div>
-            </td>
-        </tr>
+                <td scope="row">
+                    <form action="/Categoria/ModificarCategoria" method="get">
+                        <input type="hidden" name="id" id="id" value="@categoria.Id" />
+                        <input type="hidden" name="id" id="id" value="@categoria.Nombre" />
+                        <input type="hidden" name="id" id="id" value="@categoria.Habilitado" />
+                        <input class="btn btn-dark" type="submit" value="Modificar">
+                    </form>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
-
