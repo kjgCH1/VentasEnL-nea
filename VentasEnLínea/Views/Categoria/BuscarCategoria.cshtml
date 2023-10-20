@@ -16,8 +16,8 @@
     <thead>
         <tr>
             <th scope="col">Nombre</th>
-            <th scope="col">Habilitado</th>
             <th scope="col"></th>
+            <th scope="col">Habilitado</th>
         </tr>
     </thead>
     <tbody>
@@ -25,18 +25,6 @@
         {
             <tr>
                 <th scope="row">@categoria.Nombre</th>
-                
-                <td scope="row">
-                    <div class="form-check form-check-inline">
-                        <form action="/Categoria/ModificarCategoriaPorJson">
-                            <input type="hidden" name="id" id="id" value="@categoria.Id" />
-                            <input type="hidden" name="id" id="id" value="@categoria.Nombre" />
-                            <input type="hidden" name="id" id="id" value="@categoria.Habilitado" />
-                            <input class="form-check-input" style="background-color: black;" type="checkbox" checked="@categoria.Habilitado" id="gridCheck">
-                        </form>
-                     </div>
-                </td>
-
                 <td scope="row">
                     <form action="/Categoria/ModificarCategoria" method="get">
                         <input type="hidden" name="id" id="id" value="@categoria.Id" />
@@ -45,7 +33,50 @@
                         <input class="btn btn-dark" type="submit" value="Modificar">
                     </form>
                 </td>
+                <td scope="row">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" style="background-color: black;" type="checkbox" checked="@categoria.Habilitado" id="Check@categoria.Id" onchange="prueba('@categoria.Id',this.checked)">
+                        <label class="form-check-label" for="Check@categoria.Id">
+                            <span id="spam_@categoria.Id" name="spam_@categoria.Id"></span>
+                        </label>
+                    </div>
+                </td>
+
+               
             </tr>
         }
     </tbody>
 </table>
+
+<script>
+    function prueba(categoriaId, isChecked,Nombre) {
+        $.ajax({
+            type: 'POST',
+            url: '/Categoria/habilitarCategoria',
+            data: {
+                id: parseInt(categoriaId),
+                habilitado: isChecked
+            },
+            dataType: 'json',
+            beforeSend: function () {
+                // Muestra un mensaje de carga o un indicador de progreso aquí
+                //$("#spam_" + categoriaId).text("Procesando");
+                alert("Procesando...");
+            },
+            success: function (data) {
+                // Actualiza el contenido del span con el mensaje recibido del servidor
+               // $("#spam_" + categoriaId).text(data);
+               //$("#spam_" + categoriaId).addClass("alert-success");
+                alert(data);
+            },
+            error: function (error) {
+                // Maneja los errores aquí
+                //$("#spam_" + categoriaId).text("Error en la solicitud.");
+                alert(error);
+            },
+            complete: function () {
+                // Oculta el mensaje de carga o el indicador de progreso aquí
+            }
+        });
+    }
+</script>

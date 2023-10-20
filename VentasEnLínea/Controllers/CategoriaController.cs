@@ -2,6 +2,7 @@
 using Entidades;
 using VentasEnLíneaVista.Models;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace VentasEnLíneaVista.Controllers
 {
@@ -83,6 +84,25 @@ namespace VentasEnLíneaVista.Controllers
             }
             categoria = new Categoria();
             return View(categoria);
+        }
+
+
+        [HttpPost]
+        public string habilitarCategoria(int id, bool habilitado)
+        {
+            CategoriaModel model = new CategoriaModel();
+            Categoria categoria = model.buscarCategoria(id);
+            categoria.Habilitado = habilitado;
+            string mensaje= "";
+            if (model.modificarCategoria(categoria)) {
+                mensaje = habilitado ? "Ahora está habilitada" : "Ya no está habilitada";
+            }
+            else 
+            {
+                mensaje = "Algo salio mal";
+            }
+            return JsonConvert.SerializeObject(mensaje);
+            
         }
     }
 }
