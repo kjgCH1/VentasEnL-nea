@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewData["Title"] = "ModificarSalonero";
+    @model Entidades.Salonero;
+}
+<h1>ModificarSalonero</h1>
+@if (!string.IsNullOrEmpty(ViewBag.Mensaje))
+{
+    <div class="@ViewBag.etiqueta" role="alert">@ViewBag.Mensaje</div>
+}
+<form method="post" asp-action="ModificarSalonero"
+      onsubmit="return confirm('¿Estás seguro de modificar al Salonero con el nombre ' + document.getElementById('Nombre').value +
+        ' usuario ' + document.getElementById('Usuario').value +
+        ' contraseña ' + document.getElementById('Contrasena').value + '?')">
+    <div class="form-row">
+        <label asp-for="Nombre"></label>
+        <input asp-for="Nombre" class="form-control" name="Nombre" required />
+    </div>
+    <div class="form-row">
+        <label asp-for="Usuario"></label>
+        <input asp-for="Usuario" class="form-control" name="Usuario" required />
+    </div>
+    <div class="form-row">
+        <label asp-for="Contrasena"></label>
+        <input asp-for="Contrasena" class="form-control" name="Contrasena" required />
+    </div>
+    <div class="mb-3">
+        <input asp-for="Id" type="hidden" class="form-control" name="Id" required />
+        <input asp-for="Habilitado" type="hidden" class="form-control" name="Habilitado" required />
+    </div>
+    <button type="submit" class="btn btn-dark">Modificar</button>
+</form>

@@ -4,56 +4,78 @@
 }
 
 <h1>Buscar Salonero</h1>
-<form class="form-inline">
-    <input class="form-control" type="search" placeholder="Nombre del salonero" aria-label="Search" />
-    <button class="btn btn-dark my-2 my-sm-0" type="submit">Buscar</button>
+<form class="form-inline" method="post" action="/Salonero/BuscarSalonero">
+    <input class="form-control" type="text" id="parametroBusqueda" name="parametroBusqueda" placeholder="Nombre de la salonero" aria-label="Search" required />
+    <input class="btn btn-dark my-2 my-sm-0" type="submit" value="Buscar" />
 </form>
+@if (!string.IsNullOrEmpty(ViewBag.Mensaje))
+{
+    <div class="alert alert-warning" role="alert">@ViewBag.Mensaje</div>
+}
 <table class="table table-light">
     <thead>
         <tr>
             <th scope="col">Nombre</th>
-            <th scope="col"> </th>
             <th scope="col"></th>
+            <th scope="col">Habilitado</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <th scope="row">Kevin Jiménez Granados</th>
-            <td><button type="button" class="btn btn-dark"><a asp-area="" asp-controller="Salonero" asp-action="" style="text-decoration: none; color:white">Modificar</a></button></td>
-            <td>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck">
-                    <label class="form-check-label" for="gridCheck">
-                        Habilitado
-                    </label>
-                </div>
-            </td>
+        @foreach (var salonero in Model)
+        {
+            <tr>
+                <th scope="row">@salonero.Nombre</th>
+                <td scope="row">
+                    <form action="/Salonero/ModificarSalonero" method="get">
+                        <input type="hidden" name="id" id="id" value="@salonero.Id" />
+                        <input type="hidden" name="id" id="id" value="@salonero.Nombre" />
+                        <input type="hidden" name="id" id="id" value="@salonero.Habilitado" />
+                        <input class="btn btn-dark" type="submit" value="Modificar">
+                    </form>
+                </td>
+                <td scope="row">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" style="background-color: black;" type="checkbox" checked="@salonero.Habilitado" id="Check@categoria.Id" onchange="habilitar('@salonero.Id',this.checked)">
+                        <label class="form-check-label" for="Check@categoria.Id">
+                            <span id="spam_@salonero.Id" name="spam_@salonero.Id"></span>
+                        </label>
+                    </div>
+                </td>
 
-        </tr>
-        <tr>
-            <th scope="row">Andrei Martinez Delgado</th>
-            <td><button type="button" class="btn btn-dark"><a asp-area="" asp-controller="Salonero" asp-action="" style="text-decoration: none; color:white">Modificar</a></button></td>
-            <td>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck">
-                    <label class="form-check-label" for="gridCheck">
-                        Habilitado
-                    </label>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <th scope="row">Grace Rojas Arce</th>
-            <td><button type="button" class="btn btn-dark"><a asp-area="" asp-controller="Salonero" asp-action="" style="text-decoration: none; color:white">Modificar</a></button></td>
-            <td>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck">
-                    <label class="form-check-label" for="gridCheck">
-                        Habilitado
-                    </label>
-                </div>
-            </td>
-        </tr>
+
+            </tr>
+        }
     </tbody>
 </table>
-
+<script>
+    function habilitar(categoriaId, isChecked, Nombre) {
+        $.ajax({
+            type: 'POST',
+            url: '/Salonero/habilitarSalonero',
+            data: {
+                id: parseInt(categoriaId),
+                habilitado: isChecked
+            },
+            dataType: 'json',
+            beforeSend: function () {
+                // Muestra un mensaje de carga o un indicador de progreso aquí
+                //$("#spam_" + categoriaId).text("Procesando");
+                alert("Procesando...");
+            },
+            success: function (data) {
+                // Actualiza el contenido del span con el mensaje recibido del servidor
+                // $("#spam_" + categoriaId).text(data);
+                //$("#spam_" + categoriaId).addClass("alert-success");
+                alert(data);
+            },
+            error: function (error) {
+                // Maneja los errores aquí
+                //$("#spam_" + categoriaId).text("Error en la solicitud.");
+                alert(error);
+            },
+            complete: function () {
+                // Oculta el mensaje de carga o el indicador de progreso aquí
+            }
+        });
+    }
+</script>

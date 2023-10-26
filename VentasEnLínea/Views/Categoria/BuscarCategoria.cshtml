@@ -35,7 +35,7 @@
                 </td>
                 <td scope="row">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" style="background-color: black;" type="checkbox" checked="@categoria.Habilitado" id="Check@categoria.Id" onchange="prueba('@categoria.Id',this.checked)">
+                        <input class="form-check-input" style="background-color: black;" type="checkbox" checked="@categoria.Habilitado" id="Check@categoria.Id" onchange="habilitar('@categoria.Id',this.checked)">
                         <label class="form-check-label" for="Check@categoria.Id">
                             <span id="spam_@categoria.Id" name="spam_@categoria.Id"></span>
                         </label>
@@ -49,7 +49,7 @@
 </table>
 
 <script>
-    function prueba(categoriaId, isChecked,Nombre) {
+    function habilitar(categoriaId, isChecked, Nombre) {
         $.ajax({
             type: 'POST',
             url: '/Categoria/habilitarCategoria',

@@ -1,42 +1,53 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "CrearProducto";
 }
 
 <h1>Crear Producto</h1>
-<form>
-    <div class="form-row">
-        <label for="inputState">Nombre</label>
+@if (!string.IsNullOrEmpty(ViewBag.Mensaje))
+{
+    <div class="@ViewBag.etiqueta" role="alert">@ViewBag.Mensaje</div>
+}
 
-        <input type="text" class="form-control" />
+@if (!string.IsNullOrEmpty(Model.Producto.Imagen))
+{
+    <img src="~/@Url.Content(Model.Producto.Imagen)"/>
+}
+
+@if (!string.IsNullOrEmpty(ViewBag.Producto))
+{
+    @ViewBag.Producto
+}
+<form method="post" asp-action="CrearProducto" enctype="multipart/form-data">
+    <div class="form-row">
+        <label>Nombre</label>
+        <input type="text" class="form-control" name="Producto.Nombre" />
+    </div>
+    <div class="form-row">
+        <label for="inputState">Categoria</label>
+        <select id="Categoria" class="form-control" name="Producto.Categoria">
+            <!-- Iterar sobre la lista de categorías -->
+            <option selected>Elegir...</option>
+            @foreach (var categoria in Model.Categorias)
+            {
+                <option value="@categoria.Id">@categoria.Nombre</option>
+            }
+        </select>
     </div>
     <div class="form-row">
         <label for="inputState">Descripción</label>
 
-        <textarea type="text" class="form-control" ></textarea>
+        <input type="text" name="Producto.Descripcion" class="form-control">
     </div>
+    <!-- Campo para subir imagen -->
     <div class="form-row">
-        <label for="inputState">Precio</label>
+        <label>Imagen</label>
+        <input type="file" class="form-control" name="imagen" accept=".png, .jpg, .jpeg" />
+    </div>
+    <div class="mb-3">
+        <label>Precio de entrega</label>
+        <input class="form-control" name="Producto.Precio" required />
+        <div id="errorPrecio" class="error-message"></div>
+    </div>
 
-        <input type="number" class="form-control" />
-    </div>
-    <div class="form-row">
-            <label for="inputState">Categoria</label>
-            <select id="inputState" class="form-control">
-                <option selected>Elegir...</option>
-                <option>Sushi Rolls</option>
-                <option>Arroces</option>
-                <option>Bowls</option>
-            </select>
-        </div>
-    <div class="form-row">
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck">
-            <label class="form-check-label" for="gridCheck">
-                Habilitado
-            </label>
-        </div>
-    </div>
     <button type="submit" class="btn btn-dark">Crear</button>
 </form>
-

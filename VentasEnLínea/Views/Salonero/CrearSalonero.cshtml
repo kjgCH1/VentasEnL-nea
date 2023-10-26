@@ -2,23 +2,30 @@
 @{
     ViewData["Title"] = "CrearSalonero";
 }
-
+@model Entidades.Salonero
 <h1>Crear Salonero</h1>
-<form>
+@if (!string.IsNullOrEmpty(ViewBag.Mensaje))
+{
+    <div class="@ViewBag.etiqueta" role="alert">@ViewBag.Mensaje</div>
+}
+<form method="post" asp-action="crearSalonero"
+      onsubmit="return confirm('¿Estás seguro de modificar al Salonero con el nombre ' + document.getElementById('Nombre').value +
+        ' usuario ' + document.getElementById('Usuario').value +
+        ' contraseña ' + document.getElementById('Contrasena').value + '?')">
     <div class="form-row">
-        <label for="inputState">Nombre</label>
-
-        <input type="text" class="form-control" />
+        <label asp-for="Nombre"></label>
+        <input asp-for="Nombre" class="form-control" name="Nombre" required />
     </div>
     <div class="form-row">
-        <label for="inputState">Usuario</label>
-
-        <input type="text" class="form-control" />
+        <label asp-for="Usuario"></label>
+        <input asp-for="Usuario" class="form-control" name="Usuario" required />
+    </div>
+    <div class="form-row">
+        <label asp-for="Contrasena"></label>
+        <input asp-for="Contrasena" class="form-control" name="Contrasena" required />
     </div>
     <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1">
+        <input asp-for="Habilitado" type="hidden" class="form-control" name="Habilitado" value="true" />
     </div>
     <button type="submit" class="btn btn-dark">Crear</button>
 </form>
-

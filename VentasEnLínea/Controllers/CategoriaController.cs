@@ -64,6 +64,8 @@ namespace VentasEnLíneaVista.Controllers
         [HttpPost]
         public IActionResult crearCategoria(Categoria categoria)
         {
+            ViewBag.Mensaje = "Algo salio mal";
+            ViewBag.etiqueta = "alert alert-danger";
             if (ModelState.IsValid)
             {
                 CategoriaModel model = new CategoriaModel();

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "dtw03RmnUzAUyCAxcrN00t59VvT2V9qG5Mv8hpzNjbg=",
+  "Hash": "H+GqSi6tCaVZ7RzsPddU0FPg01nOor/vFIIPG9K9Tt4=",
   "Source": "VentasEnLíneaVista",
   "BasePath": "_content/VentasEnLíneaVista",
   "Mode": "Default",
@@ -185,6 +185,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\imagen\\daruma3.png"
+    },
+    {
+      "Identity": "C:\\Users\\gmg55\\source\\repos\\VentasEnLínea\\VentasEnLínea\\wwwroot\\imagen\\Productos\\.jpg",
+      "SourceId": "VentasEnLíneaVista",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\gmg55\\source\\repos\\VentasEnLínea\\VentasEnLínea\\wwwroot\\",
+      "BasePath": "_content/VentasEnLíneaVista",
+      "RelativePath": "imagen/Productos/.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\imagen\\Productos\\.jpg"
     },
     {
       "Identity": "C:\\Users\\gmg55\\source\\repos\\VentasEnLínea\\VentasEnLínea\\wwwroot\\imagen\\WhatsApp Image 2023-09-22 at 12.26.44 PM.png",

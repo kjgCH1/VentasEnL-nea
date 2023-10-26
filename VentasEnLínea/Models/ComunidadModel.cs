@@ -15,8 +15,6 @@ namespace VentasEnLíneaVista.Models
 
         
         public List<Comunidad> listar()
-
-
         {
             List<Comunidad> comunidades = new List<Comunidad>();
 
