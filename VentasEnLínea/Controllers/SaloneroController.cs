@@ -1,11 +1,14 @@
 ﻿using Entidades;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.Data;
 using VentasEnLíneaVista.Models;
 
 namespace VentasEnLíneaVista.Controllers
 {
+    [Authorize(Roles = "Administrador")]
     public class SaloneroController : Controller
     {
         public IActionResult CrearSalonero()

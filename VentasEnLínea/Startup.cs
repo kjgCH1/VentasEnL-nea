@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,12 @@ namespace VentasEnLínea
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+            .AddCookie(option => {
+                option.LoginPath = "/Acceso/Index";//formulario para inicio de session
+                option.ExpireTimeSpan = TimeSpan.FromMinutes(10);//tiempo de vida de la session
+                option.AccessDeniedPath = "/Home/Privacy";//vista en caso de denegar el acceso
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,6 +51,7 @@ namespace VentasEnLínea
 
             app.UseRouting();
 
+            app.UseAuthentication();//siempre primero que autorizacion
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

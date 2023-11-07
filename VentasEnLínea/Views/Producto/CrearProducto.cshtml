@@ -5,22 +5,22 @@
 <h1>Crear Producto</h1>
 @if (!string.IsNullOrEmpty(ViewBag.Mensaje))
 {
-    <div class="@ViewBag.etiqueta" role="alert">@ViewBag.Mensaje</div>
+    <div class="@ViewBag.etiqueta" role="alert">
+        <p class="text-center">
+            @ViewBag.Mensaje
+        </p>
+        <div class="text-center">
+            <img src="~/@Url.Content(Model.Producto.Imagen)" class="img-fluid" style="max-width: 50%" />
+        </div>
+        
+    </div>
 }
-
-@if (!string.IsNullOrEmpty(Model.Producto.Imagen))
-{
-    <img src="~/@Url.Content(Model.Producto.Imagen)"/>
-}
-
-@if (!string.IsNullOrEmpty(ViewBag.Producto))
-{
-    @ViewBag.Producto
-}
-<form method="post" asp-action="CrearProducto" enctype="multipart/form-data">
+    
+<form method="post" asp-action="CrearProducto" enctype="multipart/form-data" onsubmit="return confirmarEnvio()">
     <div class="form-row">
         <label>Nombre</label>
-        <input type="text" class="form-control" name="Producto.Nombre" />
+        <input type="text" class="form-control" name="Producto.Nombre" id="nombre" required/>
+        <div id="errorNombre" class="error-message" style="color:red"></div>
     </div>
     <div class="form-row">
         <label for="inputState">Categoria</label>
@@ -36,7 +36,7 @@
     <div class="form-row">
         <label for="inputState">Descripción</label>
 
-        <input type="text" name="Producto.Descripcion" class="form-control">
+        <input type="text" name="Producto.Descripcion" class="form-control" required>
     </div>
     <!-- Campo para subir imagen -->
     <div class="form-row">
@@ -45,9 +45,54 @@
     </div>
     <div class="mb-3">
         <label>Precio de entrega</label>
-        <input class="form-control" name="Producto.Precio" required />
-        <div id="errorPrecio" class="error-message"></div>
+        <input class="form-control" name="Producto.Precio" id="precio" required/>
+        <div id="errorPrecio" class="error-message" style="color:red"></div>
     </div>
 
     <button type="submit" class="btn btn-dark">Crear</button>
 </form>
+
+<script>
+    function confirmarEnvio() {
+        var confirmacion = confirm("¿Estás seguro de ingresar el producto?");
+        if (confirmacion) {
+            return validarNombre() && validarPrecio();
+        } else {
+            return false;
+        }
+    }
+
+    function validarNombre() {
+        var nombreInput = document.getElementById('nombre');
+        var errorNombre = document.getElementById('errorNombre');
+
+        var valor = nombreInput.value.trim();
+        var patron = /^[a-zA-Z0-9\s]*$/;
+
+        if (!patron.test(valor)) {
+            errorNombre.textContent = 'El campo no debe contener símbolos.';
+            return false;
+        } else {
+            errorNombre.textContent = '';
+            return true;
+        }
+    }
+
+    function validarPrecio() {
+        var precioInput = document.getElementById('precio');
+        var errorPrecio = document.getElementById('errorPrecio');
+
+        var valor = precioInput.value.trim();
+
+        // Patrón para validar el precio entre 0 y 100000 con dos decimales y coma como separador decimal
+        var patron = /^(?!0\d)\d{1,5}(,\d{1,2})?$/;
+
+        if (!patron.test(valor)) {
+            errorPrecio.textContent = 'El formato no es válido. Debe ser un número mayor a cero y menor a 100000 con máximo dos decimales separados por coma.';
+            return false;
+        } else {
+            errorPrecio.textContent = '';
+            return true;
+        }
+    }
+</script>

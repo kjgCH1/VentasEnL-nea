@@ -4,6 +4,10 @@
 
 <div class="text-center">
     <h1 class="display-4">Bienvenidos</h1>
+    @if (!string.IsNullOrEmpty(ViewBag.Mensaje))
+    {
+        <div class="@ViewBag.etiqueta" role="alert">@ViewBag.Mensaje</div>
+    }
     <p>Puedes ver nuestro menú <a asp-area="" asp-controller="Producto" asp-action="BuscarProducto">acá</a>.</p>
     <style>
         /* Estilo para el carrusel */

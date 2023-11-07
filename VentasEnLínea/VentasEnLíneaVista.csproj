@@ -9,6 +9,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="Dominio">
+      <HintPath>..\..\SeguridadAPI\Dominio\bin\Debug\net6.0\Dominio.dll</HintPath>
+    </Reference>
     <Reference Include="Entidades">
       <HintPath>..\..\VentasEnLíneaAPI\Entidades\bin\Debug\net6.0\Entidades.dll</HintPath>
     </Reference>

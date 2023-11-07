@@ -1,0 +1,48 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<style>
+    body {
+        background-color: black; /* Establece el color de fondo en negro */
+        color: white; /* Establece el color del texto en blanco */
+    }
+</style>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Index</title>
+</head>
+<body class="bg-danger">
+    <div class="container">
+        <div class="row mt-5 d-flex justify-content-center align-items-center">
+            <div class="col-sm-4 text-center">
+                <img src="~/imagen/whatsapp image 2023-09-22 at 12.30.17 pm.png" style="max-width: 200px;" />
+            </div>
+            <div class="col-sm-4">
+                @if (!string.IsNullOrEmpty(ViewBag.Mensaje))
+                {
+                    <div class="@ViewBag.etiqueta" role="alert">@ViewBag.Mensaje</div>
+                }
+                <form asp-controller="Acceso" asp-action="Index" method="post">
+                    <div class="form-group">
+                        <label for="cedula" style="color: white">Cedula</label>
+                        <input type="text" class="form-control" id="cedula" name="cedula">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1" style="color: white">Contraseña</label>
+                        <input type="password" class="form-control" id="contrasena" name="contrasena">
+                    </div>
+                    <button type="submit" class="btn btn-dark">Ingresar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

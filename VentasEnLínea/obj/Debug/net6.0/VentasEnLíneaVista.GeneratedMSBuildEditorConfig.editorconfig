@@ -16,6 +16,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\gmg55\source\repos\VentasEnLínea\VentasEnLínea
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/gmg55/source/repos/VentasEnLínea/VentasEnLínea/Views/Acceso/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjZXNvXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/gmg55/source/repos/VentasEnLínea/VentasEnLínea/Views/Categoria/BuscarCategoria.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhXEJ1c2NhckNhdGVnb3JpYS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -90,6 +94,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/gmg55/source/repos/VentasEnLínea/VentasEnLínea/Views/Producto/ModificarProducto.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cTW9kaWZpY2FyUHJvZHVjdG8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gmg55/source/repos/VentasEnLínea/VentasEnLínea/Views/Reporte/BuscarReporte.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZVxCdXNjYXJSZXBvcnRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/gmg55/source/repos/VentasEnLínea/VentasEnLínea/Views/Reporte/Index.cshtml]

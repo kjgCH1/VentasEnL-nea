@@ -4,9 +4,12 @@ using VentasEnLíneaVista.Models;
 using Entidades;
 using System.Runtime.InteropServices;
 using System.Globalization;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace VentasEnLíneaVista.Controllers
 {
+    [Authorize(Roles = "Administrador")]
     public class ComunidadController : Controller
     {
         public IActionResult CrearComunidad()

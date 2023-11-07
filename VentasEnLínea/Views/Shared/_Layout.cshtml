@@ -21,85 +21,112 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
                         
+                        
+                        @if (User.IsInRole("Cliente"))
+                        {
                         <li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-controller="Producto" asp-action="menu">Menu</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Pendiente" asp-action="Notificacion">Pedidos Pendientes</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Historial" asp-action="Index">Historial de compras</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Reporte" asp-action="Index">Reporte de actividades</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="" asp-action="">Clientes</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Producto
-                            </a>
-                            <ul class="dropdown-menu text-white">
-                                <li><a class="dropdown-item" asp-area="" asp-controller="Producto" asp-action="CrearProducto">Crear</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" asp-area="" asp-controller="Producto" asp-action="BuscarProducto">Buscar</a></li>
-                            </ul>
-                        </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Direcciones
+                                </a>
+                                <ul class="dropdown-menu text-white">
+                                    <li><a class="dropdown-item" asp-controller="Direccion" asp-action="CrearDireccion">Crear</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" asp-controller="Direccion" asp-action="BuscarDireccion">Buscar</a></li>
+                                </ul>
+                            </li>
+                        
+                        }
+                        
+                        @if (User.IsInRole("Salonero"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-white" asp-area="" asp-controller="Pendiente" asp-action="Notificacion">Pedidos Pendientes</a>
+                            </li>
+                        }
+                        @if (User.IsInRole("Administrador"))
+                        {
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Categoria
-                            </a>
-                            <ul class="dropdown-menu text-white">
-                                <li><a class="dropdown-item" asp-area="" asp-controller="Categoria" asp-action="CrearCategoria">Crear</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" asp-area="" asp-controller="Categoria" asp-action="BuscarCategoria">Buscar</a></li>
-                            </ul>
-                        </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" asp-area="" asp-controller="Historial" asp-action="Index">Historial de compras</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" asp-area="" asp-controller="Reporte" asp-action="BuscarReporte">Reporte de actividades</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" asp-area="" asp-controller="" asp-action="">Clientes</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Producto
+                                </a>
+                                <ul class="dropdown-menu text-white">
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="Producto" asp-action="CrearProducto">Crear</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="Producto" asp-action="BuscarProducto">Buscar</a></li>
+                                </ul>
+                            </li>
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Oferta
-                            </a>
-                            <ul class="dropdown-menu text-white">
-                                <li><a class="dropdown-item" asp-area="" asp-controller="Oferta" asp-action="CrearOferta">Crear</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" asp-area="" asp-controller="Oferta" asp-action="BuscarOferta">Buscar</a></li>
-                            </ul>
-                        </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Categoria
+                                </a>
+                                <ul class="dropdown-menu text-white">
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="Categoria" asp-action="CrearCategoria">Crear</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="Categoria" asp-action="BuscarCategoria">Buscar</a></li>
+                                </ul>
+                            </li>
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Salonero
-                            </a>
-                            <ul class="dropdown-menu text-white">
-                                <li><a class="dropdown-item" asp-area="" asp-controller="Salonero" asp-action="CrearSalonero">Crear</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" asp-area="" asp-controller="Salonero" asp-action="BuscarSalonero">Buscar</a></li>
-                            </ul>
-                        </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Oferta
+                                </a>
+                                <ul class="dropdown-menu text-white">
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="Oferta" asp-action="CrearOferta">Crear</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="Oferta" asp-action="BuscarOferta">Buscar</a></li>
+                                </ul>
+                            </li>
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Comunidad
-                            </a>
-                            <ul class="dropdown-menu text-white">
-                                <li><a class="dropdown-item" asp-controller="Comunidad" asp-action="CrearComunidad">Crear</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" asp-controller="Comunidad" asp-action="BuscarComunidad">Buscar</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Direcciones
-                            </a>
-                            <ul class="dropdown-menu text-white">
-                                <li><a class="dropdown-item" asp-controller="Direccion" asp-action="CrearDireccion">Crear</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" asp-controller="Direccion" asp-action="BuscarDireccion">Buscar</a></li>
-                            </ul>
-                        </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Salonero
+                                </a>
+                                <ul class="dropdown-menu text-white">
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="Salonero" asp-action="CrearSalonero">Crear</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="Salonero" asp-action="BuscarSalonero">Buscar</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Comunidad
+                                </a>
+                                <ul class="dropdown-menu text-white">
+                                    <li><a class="dropdown-item" asp-controller="Comunidad" asp-action="CrearComunidad">Crear</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" asp-controller="Comunidad" asp-action="BuscarComunidad">Buscar</a></li>
+                                </ul>
+                            </li>
+                            
+                        }
+                        @if (!User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-white" asp-area="" asp-controller="Acceso" asp-action="Index">Login</a>
+                            </li>
+
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-white" asp-area="" asp-controller="Acceso" asp-action="Salir">Salir</a>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>
@@ -107,7 +134,9 @@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
-            <div class="d-flex justify-content-end mb-3">
+         @if (User.Identity.IsAuthenticated)
+        {
+                <div class="d-flex justify-content-end mb-3">
 
                 <button class="btn btn-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
@@ -187,59 +216,61 @@
                     </div>
                 </div>
             </div>
+        }
+        @if (User.IsInRole("Cliente"))
+        {
             <div class="d-flex justify-content-end mb-3">
                 <button class="btn btn-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop2" aria-controls="staticBackdrop">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
                         <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
                     </svg>
                 </button>
-
+            
                 <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop2" aria-labelledby="staticBackdropLabel">
-                    <div class="offcanvas-header">
-                        
+                    <div class="offcanvas-header"> 
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-
-                       
                     </div>
-                    <div class="offcanvas-body">
-                        <div>
-                            <h5 class="offcanvas-title" id="staticBackdropLabel">Pedido</h5>
-                            <form>
-                                <div class="form-row">
-                                    <label for="inputState">Cantones entero Precio: 4800.00</label>
-                                </div>
-                                <div class="form-row">
-                                    <button class="btn btn-danger">Eliminar</button>
-                                </div>
-                                <div class="form-row">
-                                    <label for="inputState">Cantones entero Precio: 4800.00</label>
-                                </div>
-                                <div class="form-row">
-                                    <button class="btn btn-danger">Eliminar</button>
-                                </div>
-                                <div class="form-row">
-                                    <label for="inputState">Cantones entero Precio: 4800.00</label>
-                                </div>
-                                <div class="form-row">
-                                    <button class="btn btn-danger">Eliminar</button>
-                                </div>
-                                <div class="form-row">
-                                    <label for="inputState">Direcion</label>
-                                    <select id="inputState" class="form-control">
-                                        <option selected>Elegir...</option>
-                                        <option>San Rafael frente a la escuela</option>
-                                        <option>Santa Rosa 200 mts norte de la iglesia</option>
-                                        <option>Azul del CECUDI dos cuadras hacía abajo</option>
-                                    </select>
-                                </div>
-                                <div class="form-row justify-content-end border-top pt-3">
-                                    <button type="submit" class="btn btn-dark">Realizar Pedido</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+                   
+                        <div class="offcanvas-body">
+                            <div>
+                                <h5 class="offcanvas-title" id="staticBackdropLabel">Pedido</h5>
+                                <form>
+                                    <div class="form-row">
+                                        <label for="inputState">Cantones entero Precio: 4800.00</label>
+                                    </div>
+                                    <div class="form-row">
+                                        <button class="btn btn-danger">Eliminar</button>
+                                    </div>
+                                    <div class="form-row">
+                                        <label for="inputState">Cantones entero Precio: 4800.00</label>
+                                    </div>
+                                    <div class="form-row">
+                                        <button class="btn btn-danger">Eliminar</button>
+                                    </div>
+                                    <div class="form-row">
+                                        <label for="inputState">Cantones entero Precio: 4800.00</label>
+                                    </div>
+                                    <div class="form-row">
+                                        <button class="btn btn-danger">Eliminar</button>
+                                    </div>
+                                    <div class="form-row">
+                                        <label for="inputState">Direcion</label>
+                                        <select id="inputState" class="form-control">
+                                            <option selected>Elegir...</option>
+                                            <option>San Rafael frente a la escuela</option>
+                                            <option>Santa Rosa 200 mts norte de la iglesia</option>
+                                            <option>Azul del CECUDI dos cuadras hacía abajo</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-row justify-content-end border-top pt-3">
+                                        <button type="submit" class="btn btn-dark">Realizar Pedido</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>  
                 </div>
             </div>
+            }
             @RenderBody()
         </main>
     </div>
@@ -259,7 +290,7 @@
                 <div class="row mt-4">
                     <!--Grid column-->
                 <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
-                    </center><img src="~/imagen/whatsapp image 2023-09-22 at 12.26.44 pm.png" style="width: 100px;" />
+                    <img src="~/imagen/whatsapp image 2023-09-22 at 12.26.44 pm.png" style="width: 100px;" />
                         <h5 class="text-uppercase mb-4">Somos:</h5>
 
                         <p>

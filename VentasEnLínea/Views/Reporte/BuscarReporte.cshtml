@@ -1,0 +1,52 @@
+﻿@{
+    ViewData["Title"] = "BuscarReporte";
+}
+
+<h1>Reporte de actividades Administrador</h1>
+<form class="form-inline small-form" method="post" action="/Reporte/BuscarReporte">
+    <div class="form-group">
+        <label for="fecha">Desde</label>
+        <input type="date" class="form-control form-control-sm" id="fecha1" name="parametroBusqueda1" required>
+    </div>
+    <div class="form-group">
+        <label for="fecha2">Hasta</label>
+        <input type="date" class="form-control form-control-sm" id="fecha2" name="parametroBusqueda2" required>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-sm btn-dark" id="buscar-button">Buscar</button>
+    </div>
+</form>
+
+@if (!string.IsNullOrEmpty(ViewBag.Mensaje))
+{
+    <div class="alert alert-warning" role="alert">@ViewBag.Mensaje</div>
+}
+<table class="table table-light">
+    <thead>
+        <tr>
+            <th scope="col">Administrador</th> 
+            <th scope="col">Fecha</th>
+            <th scope="col">Detalle</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var reporte in Model)
+        {
+            <tr>
+                <th scope="row">@reporte.Administrador</th>
+                <th scope="row">@reporte.Fecha</th>
+                <th scope="row">@reporte.Detalle</th>
+
+                 <td scope="row">
+                    <form action="/Reporte/BuscarReporte" method="get">
+                        <input type="hidden" name="id" value="@reporte.Administrador" />
+                        <input type="hidden" name="cedula" value="@reporte.Fecha" />
+                        <input type="hidden" name="nombre" value="@reporte.Detalle" />
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

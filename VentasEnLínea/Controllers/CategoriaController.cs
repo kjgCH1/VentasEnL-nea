@@ -3,11 +3,15 @@ using Entidades;
 using VentasEnLíneaVista.Models;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace VentasEnLíneaVista.Controllers
 {
+    [Authorize(Roles = "Administrador")]
     public class CategoriaController : Controller
-    {
+    {   
+
         public IActionResult CrearCategoria()
         {
             Categoria categoria = new Categoria();
